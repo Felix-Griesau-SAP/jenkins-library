@@ -29,6 +29,10 @@ void call(Map parameters = [:], String stepName, String metadataFile, List crede
         prepareExecution(script, utils, parameters)
         prepareMetadataResource(script, metadataFile)
         Map stepParameters = prepareStepParameters(parameters)
+        stepParameters.each { key, val ->
+            echo "key: $key"
+            echo "val: $val"
+        }
         echo "Step params $stepParameters"
 
         withEnv([
